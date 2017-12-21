@@ -1,0 +1,12 @@
+- name: install httpd and deploying file
+  hosts: all
+  become: true
+  tasks:
+  - name: installing httpd
+    yum: 
+     name: httpd
+     state: latest
+  - name: copy the file 
+    copy:
+     src: /root/teransible/rahul/index.html
+     dest: /var/www/html/index.html
